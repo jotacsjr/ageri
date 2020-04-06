@@ -1,0 +1,7 @@
+---
+- name: Install Apache Default
+  become: True
+  apt: 
+    name: apache2
+    update_cache: yes
+    state: latest

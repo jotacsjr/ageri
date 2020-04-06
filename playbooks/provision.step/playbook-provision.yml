@@ -1,0 +1,20 @@
+---
+- name: Install Python Minimal
+  gather_facts: false
+  hosts: node1
+  raw: sudo apt install update -y && sudo apt install python-minimal
+
+- name: Provision Build & Deploy Step
+  become: True
+  hosts: node1
+  tasks:
+    - include_role:
+        name: provision.apache
+    - include_role:
+        name: provision.docker
+    - include_role:
+        name: build.deploy
+  tags:
+  - provision
+  - build
+  - deploy 
