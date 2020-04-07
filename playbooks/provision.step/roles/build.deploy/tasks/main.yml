@@ -1,2 +1,6 @@
 ---
-# tasks file for build.deploy
+- name: Clone Code Repo
+  git:
+    repo: 'https://github.com/ageri/ageri_flask.git'
+    dest: /tmp/
+
