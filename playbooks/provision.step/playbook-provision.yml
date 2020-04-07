@@ -1,6 +1,6 @@
 ---
 - name: Install Python Minimal
-  gather_facts: false
+  gather_facts: true
   hosts: node1
   tasks:
     - name: Install Python

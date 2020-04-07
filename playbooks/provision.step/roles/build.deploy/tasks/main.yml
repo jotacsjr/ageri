@@ -1,6 +1,0 @@
----
-- name: Clone Code Repo
-  git:
-    repo: 'https://github.com/ageri/ageri_flask.git'
-    dest: /opt/repo/
-
