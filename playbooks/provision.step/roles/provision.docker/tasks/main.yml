@@ -2,10 +2,9 @@
 - name: Install Docker Requirements
   become: True
   apt:
-    name: "{{ item }}"
-    state: present
     update_cache: yes
-    with_items:
+    state: present
+    pkg:
       - apt-transport-https
       - ca-certificates
       - curl
@@ -13,20 +12,22 @@
       - python3-pip
       - virtualenv
       - python3-setuptools
-
+      
 - name: Add Docker GPG apt Key
   become: True
   apt_key:
     url: https://download.docker.com/linux/ubuntu/gpg
     state: present
+
 - name: Add Docker Repository
   become: True
   apt_repository:
     repo: deb https://download.docker.com/linux/ubuntu bionic stable
     state: present
-- name: Update apt and install docker-ce
+
+- name: Install docker-ce
   become: True
   apt: 
-    name: docker_ce
+    name: docker-ce
     update_cache: yes 
-    state: latest    
+    state: latest

@@ -2,7 +2,9 @@
 - name: Install Python Minimal
   gather_facts: false
   hosts: node1
-  raw: sudo apt install update -y && sudo apt install python-minimal
+  tasks:
+    - name: Install Python
+      raw: sudo apt update -y && sudo apt install python-minimal -y
 
 - name: Provision Build & Deploy Step
   become: True
